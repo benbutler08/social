@@ -15,9 +15,3 @@ $card-spacer-x: 0.4rem;
 		align-items: center;
 	}
 }
-
-@each $color, $value in $theme-colors {
-	.card-#{$color} {
-		@extend .border-grow-#{$color}-bottom;
-	}
-}
