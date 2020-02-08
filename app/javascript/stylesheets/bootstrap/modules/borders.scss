@@ -1,0 +1,29 @@
+// Borders
+$border-radius: 2px;
+$border-radius-lg: 3px;
+$border-radius-sm: 1px;
+
+$directions: left, right, top, bottom;
+
+@each $direction in $directions {
+	@each $color, $value in $theme-colors {
+		.border-grow-#{$color}-#{$direction} {
+			border-radius: 3px;
+			// padding: 3px;
+			border-#{$direction}: solid 3px #{$value} !important; 
+			clip-path: polygon( 
+			  calc(0% + 10px) calc(0% + 5px), /* top left */
+			  calc(100% - 5px) calc(0% + 5px), /* top right */
+			  calc(100% - 5px) calc(100% - 5px), /* bottom right */
+			  calc(0% + 10px) calc(100% - 5px) /* bottom left */
+			);
+			transition: clip-path 0.6s linear;		
+			&:hover {
+				clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+			}
+		}
+	}	
+}
+
+
+

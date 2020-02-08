@@ -1,0 +1,23 @@
+$card-border-radius: 2px;
+$card-spacer-y: .25rem;
+$card-spacer-x: 0.4rem;
+
+.card {
+	box-shadow: $box-shadow-sm;
+	transition: box-shadow 0.3s;
+	&:hover {
+		box-shadow: $box-shadow;
+		transition: box-shadow 0.3s;
+	}
+	.card-header, .card-footer {
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.card-#{$color} {
+		@extend .border-grow-#{$color}-bottom;
+	}
+}

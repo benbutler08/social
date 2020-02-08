@@ -1,0 +1,14 @@
+// Buttons
+$btn-border-radius: 2px;
+
+@each $color, $value in $theme-colors {
+	.btn-#{$color}, .btn-outline-#{$color} {
+		&:hover {
+			box-shadow: 0 .125rem .25rem #{$value};
+		}
+	}
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm * .5 !important, $btn-padding-x-sm * .5 !important, $btn-font-size-sm * .5 !important, $btn-line-height-sm * .5 !important, $btn-border-radius-sm * .5 !important);
+}

@@ -1,0 +1,7 @@
+// Shadow timing
+* {
+	@include transition(box-shadow 0.3s);
+	&:hover {
+		@include transition(box-shadow 0.3s);
+	}
+}
