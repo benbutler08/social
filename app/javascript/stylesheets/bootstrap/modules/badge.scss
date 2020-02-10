@@ -1,0 +1,21 @@
+$badge-padding-y: 0.2em;
+$badge-padding-x: 0.3em;
+
+.badge {
+	height: fit-content;
+}
+
+@mixin badge-outline-variant($color) {
+  color: $color;
+  border-color: $color;
+  border: $border-width solid;
+  &:hover {
+  	cursor: default;
+  }
+}
+
+@each $color, $value in $theme-colors {
+	.badge-outline-#{$color} {
+		@include badge-outline-variant($value);
+	}
+}

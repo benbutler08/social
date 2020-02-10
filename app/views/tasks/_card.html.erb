@@ -1,17 +1,25 @@
 <div class="card mb-3">
-  <div class="card-header">
-    <div class="card-title">
-      <%= task.title %>
+  <div class="card-header d-flex justify-content-between flex-wrap">
+    <div class="card-title col-12 col-md-10">
+      <%= task.title.truncate(70) %>
+    </div>
+    <div class="d-flex justify-content-between w-100">
+      <div class="btn-group">
+        <%= link_to 'Page', task, class: "btn btn-sm btn-outline-secondary" %>
+        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-info" %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
+        <a href="#collapse_<%= task.id %>" class="btn btn-sm btn-outline-success" data-toggle="collapse" role="button" aria-expanded="false" area-controls="#collapse_<%= task.id %>">
+            View
+        </a>
+      </div>
+      <span class="badge badge-outline-primary d-flex align-items-center">
+        <%= task.assignment&.name || 'No Assignment'%>
+      </span>
     </div>
   </div>
-  <div class="card-body">
-    <%= task.description %>
-  </div>
-  <div class="card-footer">
-    <div class="btn-group">
-      <td><%= link_to 'Show', task, class: "btn btn-sm btn-outline-secondary" %></td>
-      <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-info" %></td>
-      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
+  <div class="collapse" id="collapse_<%= task.id %>">
+    <div class="card-body">
+      <%= task.description %>
     </div>
   </div>
 </div>

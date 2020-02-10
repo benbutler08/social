@@ -1,6 +1,7 @@
 $card-border-radius: 2px;
 $card-spacer-y: .25rem;
 $card-spacer-x: 0.4rem;
+$card-cap-bg: white;
 
 .card {
 	box-shadow: $box-shadow-sm;
@@ -13,5 +14,8 @@ $card-spacer-x: 0.4rem;
 		margin-bottom: 0;
 		display: flex;
 		align-items: center;
+	}
+	.card-body {
+		cursor: default;
 	}
 }

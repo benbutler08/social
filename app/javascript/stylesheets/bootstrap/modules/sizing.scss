@@ -2,6 +2,8 @@ $min-heights: 10,20,30,40,50,60,70,80,90,100,25,75;
 
 @each $h in $min-heights {
 	.m-vh-#{$h} {
-		min-height: #{$h}vh;
+		respond-above(md) {
+			min-height: #{$h}vh;
+		}
 	}
 }

@@ -1,23 +1,15 @@
 <%= render 'tasks/navbar' %>
 
-<% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-            <%= value %>
-      </div>
-<% end %>
-
-
-
 <div class="row">
   <div class="col-12 col-lg-4">
     <div class="list-group list-group-flush">
       <div class="list-group-item list-group-item-info d-flex justify-content-around align-items-center p-0">
         Staging
-        <span class="badge badge-primary badge-pill">
+        <span class="badge badge-outline-primary badge-pill">
           <%= @tasks.where(status: 'staging').count %>
         </span>
       </div>  
-      <div class="area-outline m-vh-75 border-grow-primary-left">
+      <div class="m-vh-75">
         <div class="list-group-item">
           <% @tasks.where(status: 'staging').each do |task| %>
             <%= render 'tasks/card', task: task %>    
@@ -25,17 +17,16 @@
         </div>
       </div>
     </div>
-    
   </div>
-  <div class="col-12 col-lg-5">
+  <div class="col-12 col-lg-4">
     <div class="list-group list-group-flush">
       <div class="list-group-item list-group-item-success d-flex justify-content-around align-items-center p-0">
         Active
-        <span class="badge badge-primary badge-pill">
+        <span class="badge badge-outline-primary badge-pill">
           <%= @tasks.where(status: 'active').count %>
         </span>
       </div>  
-      <div class="area-outline m-vh-75 border-grow-success-left">
+      <div class="m-vh-75">
         <div class="list-group-item">
           <% @tasks.where(status: 'active').each do |task| %>
             <%= render 'tasks/card', task: task %>    
@@ -45,15 +36,15 @@
     </div>
     
   </div>
-  <div class="col-12 col-lg-3">
+  <div class="col-12 col-lg-4">
     <div class="list-group list-group-flush">
       <div class="list-group-item list-group-item-secondary d-flex justify-content-around align-items-center p-0">
         Complete
-        <span class="badge badge-primary badge-pill">
+        <span class="badge badge-outline-primary badge-pill">
           <%= @tasks.where(status: 'complete').count %>
         </span>
       </div>  
-      <div class="area-outline m-vh-75 border-grow-secondary-left">
+      <div class="m-vh-75">
         <div class="list-group-item">
           <% @tasks.where(status: 'complete').each do |task| %>
             <%= render 'tasks/card', task: task %>    
