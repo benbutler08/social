@@ -15,7 +15,7 @@
   <div class="col-12 col-lg-4">
     <div class="shadow mb-3 m-vh-75 list-group tab-content">
       <% @assignments.each do |assignment| %>
-        <div class="list-group tab-pane" role="tabpanel" role="tab" id="<%= "#{assignment.name}-tasks" %>">
+        <div class="list-group tab-pane task-title <%= assignment.name %>" role="tabpanel" role="tab" id="<%= "#{assignment.name}-tasks" %>">
           <% assignment.tasks.each do |task| %>
             <div class="card list-group-item p-0 tab-pane"
               role="tab" data-toggle="list" href="#<%= "task-#{task.id}-details" %>">
@@ -46,18 +46,12 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    let assignments =  document.querySelectorAll('.assignments')
-    assignments.forEach(function(assignment) {
-      assignment.addEventListener('click', function(event) {
-        document.querySelectorAll('.task-details').forEach(function(detail) {
-          detail.style.display = 'block';
-        });
-        document.querySelectorAll(`.task-details:not(.${event.target.dataset.assignment})`).forEach(function(detail) {
-          detail.style.display = 'none';
-        });
-        event.preventDefault();
-      })
+  $(document).ready(function(){
+    $('.assignments').click(function() {
+      $(`.task-details.${this.dataset.assignment}`).show();
+      $(`.task-details:not(.${this.dataset.assignment})`).hide();
+      $(`.task-details:not(.${this.dataset.assignment}) .card`).removeClass('active');
+      $(`.task-title:not(.${this.dataset.assignment}) .card`).removeClass('active');      
     });
   });
 </script>
