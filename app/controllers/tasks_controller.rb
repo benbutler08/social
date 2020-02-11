@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_form_collections, only: [:new, :edit]
 
   def index
     @tasks = Task.all
@@ -10,8 +11,6 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @status = [['active'],['staging'],['complete']]
-    @assignments = Assignment.all.map { |assignment| [assignment.name, assignment.id] }
   end
 
   def edit
@@ -45,6 +44,11 @@ class TasksController < ApplicationController
   private
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def set_form_collections
+      @status = [['active'],['staging'],['complete']]
+      @assignments = Assignment.all.map { |assignment| [assignment.name, assignment.id] } 
     end
 
     def task_params
