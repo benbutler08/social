@@ -1,9 +1,9 @@
-<div class="card mb-3">
+<div class="card">
   <div class="card-header d-flex justify-content-between flex-wrap">
     <div class="card-title col-12 col-md-10">
       <%= task.title.truncate(70) %>
     </div>
-    <div class="d-flex justify-content-between w-100">
+    <div class="d-flex justify-content-between w-100 flex-wrap">
       <div class="btn-group">
         <%= link_to 'Page', task, class: "btn btn-sm btn-outline-secondary" %>
         <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-info" %>
