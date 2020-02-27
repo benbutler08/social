@@ -8,7 +8,7 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-assignment_names = %w[LinkedIn Facebook Instagram GooglePlus Blog]
+assignment_names = %w[Garde-Manger Pastry Saute Flat-Top Grill Oven]
 
 assignment_names.each do |assignment_name| 
 	Assignment.create({
